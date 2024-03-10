@@ -39,6 +39,10 @@ jobs:
     needs: build-and-archive
     runs-on: ubuntu-latest
     environment: dev
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v3

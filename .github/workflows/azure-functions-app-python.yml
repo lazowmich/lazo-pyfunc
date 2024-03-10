@@ -33,8 +33,10 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: function-code
+        path: ./
 
   tag-release:
+    needs: build-and-archive
     runs-on: ubuntu-latest
     environment: dev
     steps:
@@ -44,7 +46,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       - name: Install semantic-release
         run: |
           npm install -g semantic-release @semantic-release/git

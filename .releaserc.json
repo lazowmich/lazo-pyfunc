@@ -1,6 +1,19 @@
 {
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    ["@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "parserOpts": {
+          "mergePattern": "^Merge pull request #(\\d+) from .*",
+          "mergeCorrespondence": [
+            "id", "type", "scope", "subject"
+          ],
+          "noteKeywords": [
+            "BREAKING CHANGE", "BREAKING CHANGES"
+          ]
+        }
+      }
+    ],
     "@semantic-release/release-notes-generator",
     "@semantic-release/github",
     [

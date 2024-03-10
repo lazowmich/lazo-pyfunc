@@ -4,9 +4,11 @@
       {
         "preset": "conventionalcommits",
         "parserOpts": {
+          "headerPattern": "^(\\w*)(?:\\(([\\w$.\\-* ]*)\\))?: (.*)$",
+          "headerCorrespondence": ["type", "scope", "subject"],
           "mergePattern": "^Merge pull request #(\\d+) from .*",
           "mergeCorrespondence": [
-            "id", "type", "scope", "subject"
+            "id"
           ],
           "noteKeywords": [
             "BREAKING CHANGE", "BREAKING CHANGES"
